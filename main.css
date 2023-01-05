@@ -17,7 +17,7 @@
 
 main {
 	min-height: 100vh;
-	background-image: linear-gradient(to bottom right,#323253, #2d2d49);
+	background-image: linear-gradient(to bottom right,#1e1e35, #202434);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -28,7 +28,7 @@ main {
 	position: relative;
 	width: 100%;
 	max-width: var(--card-width);
-	background-color: #24243c;
+	background-color: #1b1b30;
 	border-radius: 1rem;
 	padding: 1.5rem;
 	text-align: center;
@@ -125,6 +125,26 @@ main {
 	cursor: url('Cursors/GrabCursor.png'), auto;
 }
 
+/* .youtube-icon {
+	width: 0px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 10px;
+	border-radius: 10%;
+	cursor: url('Cursors/GrabCursor.png'), auto;
+}
+
+.card:hover .youtube-icon{
+	width: 45px;
+	position: absolute;
+	top: 40px;
+	right: 10px;
+	padding: 10px;
+	border-radius: 10%;
+	cursor: url('Cursors/GrabCursor.png'), auto;
+} */
+
 .card .buttons {
 	display: flex;
 	justify-content: center;
@@ -143,7 +163,7 @@ main {
 	display: block;
 	padding: 0.5rem 1rem;
 	border-radius: 0.25rem;
-	background-color: #24243c;
+	background-color: #1b1b30;
 	color: #FFF;
 	font-size: 1.25rem;
 	font-weight: 700;
