@@ -113,10 +113,10 @@ body {
     z-index: -1;
 }
 
-/* .circle2.proactive{
+.circle2.proactive{
     top: 47%;
     left: 90%;
-} */
+}
 .noise{
     display: none;
     position: absolute;
