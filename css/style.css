@@ -18,7 +18,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: #afa9b6;
+    color: #da7e7e;
+    text-shadow: rgb(184, 131, 131);
 }
 
 body {
@@ -56,13 +57,13 @@ body {
 
 .name {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     left: 50%;
-    top: -13%;
+    top: -16%;
     transform: translate(-50%, 0px);
-    font-size: 90px;
-    color: #afa9b6;
-    text-shadow: 0 0 12px #2d272d;
+    font-size: 70px;
+    color: #be6666;
+    text-shadow: 0 0 12px rgb(206, 163, 163);
     font-family: monument;
 }
 
@@ -85,12 +86,12 @@ body {
 .circle1 {
     width: 300px;
     height: 300px;
-    border-radius:50%;
+    border-radius: 50%;
     position: absolute;
     top: 56%;
     left: 50%;
     transform: translate(73%, 0%);
-    background: linear-gradient(135deg, #55484c -65%, #7e626c 85%);
+    background: linear-gradient(135deg, rgb(243, 9, 9) -65%, #d46767 85%);
     z-index: -1;
 }
 
@@ -109,7 +110,7 @@ body {
     top: 56%;
     left: 50%;
     transform: translate(-165%, -38%);
-    background: linear-gradient(80deg, #65545a 0%, #55484c 200%);
+    background: linear-gradient(90deg,  #c45757 20%, rgb(207, 142, 142) 80%);
     z-index: -1;
 }
 
@@ -141,7 +142,7 @@ body {
 }
 
 .image img {
-    margin: -114px -131px;
+    margin: -20px -131px;
     width: 160%;
     height: 110%;
     border-radius: 15px;
@@ -162,8 +163,8 @@ body {
     font-weight: 800;
     font-size: 25px;
     letter-spacing: 5px;
-    color: #afa9b6;
-    text-shadow: 0 0 12px #65545a;
+    color: #dd6464;
+    text-shadow: 0 0 12px #c47b7b;
 
 
 }
@@ -182,6 +183,7 @@ body {
     padding-top: 20px;
     justify-content: space-between;
     height: 27%;
+    right: 10px
 }
 
 .links i {
@@ -190,7 +192,8 @@ body {
 
 .links .fa-xmark {
     position: relative;
-    top: 8%;
+    top: 1%;
+    right: 10px;
     font-size: 20px;
 }
 
@@ -218,8 +221,8 @@ body {
 }
 
 .icons ul {
-    text-align: center;
-    padding-bottom: 44px;
+    text-align: right;
+    padding-bottom: 14px;
     height: 100%;
 }
 
@@ -231,7 +234,7 @@ body {
     font-size: 36px;
     margin: 0px 20px;
     position: relative;
-    top: -2px;
+    right: 10;
 
     text-shadow: 0px 0px 0px black;
     transition-property: color, text-shadow;
@@ -275,7 +278,7 @@ body {
     display: inline;
     position: absolute;
     top: 50%;
-    right: 2%;
+    right: 5%;
     font-size: 25px;
 }
 
@@ -283,25 +286,25 @@ body {
     display: inline;
     position: absolute;
     top: 50%;
-    left: 2%;
+    left: 5%;
     font-size: 25px;
 }
 
 /* ICON HOVER ANIMATIONS */
     @media(hover: hover) {
         .fa-discord:hover {
-            color: #5865f2;
-            text-shadow: 0px 0px 10px #5865f26b;
+            color: rgb(151, 116, 108);
+            text-shadow: 0px 0px 10px hsla(0, 40%, 78%, 0.911);
         }
 
         .fa-instagram:hover {
-            color: #c32aa3;
-            text-shadow: 0px 0px 10px #c32aa280;
+            color: rgb(151, 116, 108);
+            text-shadow: 0px 0px 10px hsla(0, 40%, 78%, 0.911);
         }
 
-        .fa-twitch:hover {
+        .fa-twitter:hover {
             color: #1da1f2;
-            /* text-shadow: 0px 0px 10px #1da0f281;      //Not in use */
+            text-shadow: 0px 0px 10px #1da0f281; 
         }
 
         .fa-spotify:hover {
@@ -315,12 +318,12 @@ body {
         }
 
         .fa-youtube:hover {
-            color: #ff0000;
-            /* text-shadow: 0px 0px 10px #ff000071; */
+            color: rgb(151, 116, 108);
+            text-shadow: 0px 0px 10px hsla(0, 40%, 78%, 0.911);
         }
 
         /* .links a:hover {
-            color: #d678ce;
+            color: rgb(151, 116, 108);;
         } */
     }
 
@@ -459,18 +462,18 @@ body {
 .boxtitle {
     font-family: 'Nunito', sans-serif;
     font-weight: 900;
-    font-size: 20px;
+    font-size: 10px;
     /* letter-spacing: 2px; */
     text-align: center;
     padding-bottom: 5px;
-    color: #ffdada;
+    color: #fff;
 }
 
 .btn {
     padding: 2px 8px;
     border: none;
     border-radius: 10px;
-    background-color: #C20000;
+    background-color: #ce9c9c;
     margin-top: 10px;
     opacity: 0;
     font-size: 12px;
@@ -478,7 +481,7 @@ body {
 }
 
 .btn:hover {
-    box-shadow: rgba(248, 76, 76, 0.562) 0px 0px 10px 0px;
+    box-shadow: #c29b9b 0px 0px 10px 0px;
 }
 
 .btn a {

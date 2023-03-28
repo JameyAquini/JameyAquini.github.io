@@ -30,8 +30,7 @@ body{
 }
 .name{
     font-size: 48px;
-    left: 73%;
-    top: 15%;
+
 }
 .mainbox{
     flex-direction: column;
@@ -61,66 +60,4 @@ body{
     font-size: 13px;
     height: 23%;
     padding-top: 10%;
-}
-.footer{
-    width: 20%;
-    height: 100%;
-}
-.pipe{
-    background-color: #967969;
-    transform: rotate(90deg);
-    height: 4%;
-
-}
-.icons{
-    height: 65%;
-    position: relative;
-    top: 187px;
-}
-.icons ul{
-    width: 100%;
-    padding-bottom: 0px; ;
-}
-.icons i{
-    font-size: 25px;
-    margin: -3px 20px;
-}
-.fa-discord{
-    position: relative;
-    right: 4px;
-}
-.fa-youtube{
-    position: relative;
-    right: 2px;
-
-}
-
-.projects .mainbox{
-    width: 100%;
-}
-.projects .content{
-    padding: 0px;
-}
-.boxes{
-    padding: 10px;
-    justify-content: space-between;
-}
-.box{
-    width: 110px;
-    height: 168px;
-    padding: 5px;
-}
-.avatar img{
-    width: 70%;
-}
-.boxtitle{
-    font-size: 15px;
-}
-.boxcontent{
-    font-size: 10px;
-}
-.btn{
-    opacity: 1;
-    transform: translateY(0);
-    margin-top:2px  ;
 }
