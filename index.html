@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Social Icons</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Socials</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -12,171 +12,265 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --accent: #9146FF;
     }
 
-    *:focus,
-    *:active {
-      outline: none !important;
-      -webkit-tap-highlight-color: transparent;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; width: 100%; font-family: "Poppins", sans-serif; overflow: hidden; }
+
+    .background {
+      position: fixed; inset: 0;
+      background: url("bg.png") center/cover no-repeat;
+      filter: blur(6px);
+      transform: scale(1.05);
+      z-index: -4;
     }
 
-    html,
-    body {
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.25);
+      z-index: -3;
+    }
+
+    .stars {
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      opacity: 0.85;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.8); }
+      100% { opacity: 0.2; transform: scale(1); }
+    }
+
+    .shoot {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0.15));
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.8);
+      pointer-events: none;
+    }
+
+    .center {
+      position: relative;
+      min-height: 100vh;
       display: grid;
-      height: 100%;
-      width: 100%;
-      font-family: "Poppins", sans-serif;
       place-items: center;
-      background: linear-gradient(315deg, #ffffff, #d7e1ec);
+      z-index: 10;
     }
 
     .wrapper {
       display: inline-flex;
       list-style: none;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 14px;
+      backdrop-filter: blur(4px) saturate(120%);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.3);
     }
+
+    .wrapper a { text-decoration: none; }
 
     .wrapper .icon {
       position: relative;
       background: #ffffff;
       border-radius: 50%;
-      padding: 15px;
-      margin: 10px;
-      width: 50px;
-      height: 50px;
-      font-size: 18px;
+      padding: 14px;
+      margin: 6px;
+      width: 54px;
+      height: 54px;
+      font-size: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.12);
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
     }
 
-    .wrapper .tooltip {
+    .wrapper .icon:active { transform: scale(.98); }
+
+    .wrapper .icon:hover {
+      transform: translateY(-6px);
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 14px 24px rgba(0,0,0,0.28);
+    }
+
+    .wrapper .icon i { color: #111; transition: color .15s; }
+    .wrapper .icon:hover i { color: #fff; }
+
+    .tooltip {
       position: absolute;
-      top: 0;
-      font-size: 14px;
-      background: #ffffff;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      white-space: nowrap;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--accent);
       color: #ffffff;
-      padding: 5px 8px;
-      border-radius: 5px;
-      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
       opacity: 0;
       pointer-events: none;
-      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .wrapper .tooltip::before {
-      position: absolute;
-      content: "";
-      height: 8px;
-      width: 8px;
-      background: #ffffff;
-      bottom: -3px;
-      left: 50%;
-      transform: translate(-50%) rotate(45deg);
+      transition: opacity .18s, transform .18s;
     }
 
     .wrapper .icon:hover .tooltip {
-      top: -45px;
       opacity: 1;
-      visibility: visible;
+      transform: translateX(-50%) translateY(0);
     }
 
-    /* Colors */
-    .github:hover,
-    .github:hover .tooltip,
-    .github:hover .tooltip::before {
-      background: #333333;
-      color: #ffffff;
+    .tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
-    .youtube:hover,
-    .youtube:hover .tooltip,
-    .youtube:hover .tooltip::before {
-      background: #CD201F;
-      color: #ffffff;
-    }
-
-    .twitch:hover,
-    .twitch:hover .tooltip,
-    .twitch:hover .tooltip::before {
-      background: #9146FF;
-      color: #ffffff;
-    }
-
-    .discord:hover,
-    .discord:hover .tooltip,
-    .discord:hover .tooltip::before {
-      background: #5865F2;
-      color: #ffffff;
-    }
-
-    .steam1:hover,
-    .steam1:hover .tooltip,
-    .steam1:hover .tooltip::before,
-    .steam2:hover,
-    .steam2:hover .tooltip,
-    .steam2:hover .tooltip::before {
-      background: #1b2838;
-      color: #ffffff;
+    @media (max-width:520px){
+      .wrapper { gap:10px; padding:10px; }
+      .wrapper .icon { width:48px; height:48px; padding:12px; font-size:18px; }
     }
   </style>
 </head>
 <body>
 
-<ul class="wrapper">
+  <div class="background" aria-hidden="true"></div>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
 
-  <a href="https://github.com/JameyAquini" target="_blank">
-    <li class="icon github">
-      <span class="tooltip">GitHub</span>
-      <span><i class="fab fa-github"></i></span>
-    </li>
-  </a>
+  <main class="center" role="main">
+    <ul class="wrapper" role="list" aria-label="Social links">
+      <a href="https://github.com/JameyAquini" target="_blank" rel="noopener noreferrer" title="GitHub">
+        <li class="icon github" role="listitem">
+          <span class="tooltip">GitHub</span>
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </li>
+      </a>
+      <a href="https://youtube.com/@jamey2005" target="_blank" rel="noopener noreferrer" title="YouTube">
+        <li class="icon youtube" role="listitem">
+          <span class="tooltip">YouTube</span>
+          <i class="fab fa-youtube" aria-hidden="true"></i>
+        </li>
+      </a>
+      <a href="https://twitch.tv/itzjamey" target="_blank" rel="noopener noreferrer" title="Twitch">
+        <li class="icon twitch" role="listitem">
+          <span class="tooltip">Twitch</span>
+          <i class="fab fa-twitch" aria-hidden="true"></i>
+        </li>
+      </a>
+      <a href="https://discord.com/users/809537823375228958" target="_blank" rel="noopener noreferrer" title="Discord">
+        <li class="icon discord" role="listitem">
+          <span class="tooltip">Discord</span>
+          <i class="fab fa-discord" aria-hidden="true"></i>
+        </li>
+      </a>
+      <a href="https://steamcommunity.com/id/jameyfps/" target="_blank" rel="noopener noreferrer" title="Main Steam">
+        <li class="icon steam1" role="listitem">
+          <span class="tooltip">Main Steam</span>
+          <i class="fab fa-steam" aria-hidden="true"></i>
+        </li>
+      </a>
+      <a href="https://steamcommunity.com/id/jameycs/" target="_blank" rel="noopener noreferrer" title="Alt Steam">
+        <li class="icon steam2" role="listitem">
+          <span class="tooltip">Alt Steam</span>
+          <i class="fab fa-steam" aria-hidden="true"></i>
+        </li>
+      </a>
+    </ul>
+  </main>
 
-  <a href="https://www.youtube.com/@Jamey2005" target="_blank">
-    <li class="icon youtube">
-      <span class="tooltip">YouTube</span>
-      <span><i class="fab fa-youtube"></i></span>
-    </li>
-  </a>
+  <script>
+    /* ---------- Stars generation (static, no parallax) ---------- */
+    const starsEl = document.querySelector('.stars');
+    const STAR_COUNT = 60;
+    const vw = () => Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    const vh = () => Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
-  <a href="https://www.twitch.tv/itzjamey" target="_blank">
-    <li class="icon twitch">
-      <span class="tooltip">Twitch</span>
-      <span><i class="fab fa-twitch"></i></span>
-    </li>
-  </a>
+    for(let i=0;i<STAR_COUNT;i++){
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = 1 + Math.random() * 2;
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.animationDelay = Math.random() * 4 + 's';
+      s.style.opacity = 0.25 + Math.random() * 0.9;
+      starsEl.appendChild(s);
+    }
 
-  <a href="https://discord.com/users/809537823375228958" target="_blank">
-    <li class="icon discord">
-      <span class="tooltip">Discord</span>
-      <span><i class="fab fa-discord"></i></span>
-    </li>
-  </a>
+    /* ---------- Shooting stars ---------- */
+    function spawnShootingStar(){
+      const shoot = document.createElement('div');
+      shoot.className = 'shoot';
+      const startX = Math.random() * vw();
+      const startY = Math.random() * (vh() * 0.45);
+      const dir = Math.random() > 0.5 ? 1 : -1;
+      const length = 120 + Math.random() * 220;
+      const duration = 800 + Math.random() * 1000;
 
-  <a href="https://steamcommunity.com/id/jameyfps" target="_blank">
-    <li class="icon steam1">
-      <span class="tooltip">Main Steam</span>
-      <span><i class="fab fa-steam"></i></span>
-    </li>
-  </a>
+      shoot.style.left = startX + 'px';
+      shoot.style.top = startY + 'px';
+      shoot.style.width = Math.max(2, Math.random()*3) + 'px';
+      shoot.style.height = Math.max(2, Math.random()*3) + 'px';
+      shoot.style.opacity = 0.9;
 
-  <a href="https://steamcommunity.com/id/jameycs" target="_blank">
-    <li class="icon steam2">
-      <span class="tooltip">Alt Steam</span>
-      <span><i class="fab fa-steam-symbol"></i></span>
-    </li>
-  </a>
+      const angle = (10 + Math.random()*25) * dir;
+      shoot.style.transform = `rotate(${angle}deg) translateX(0) translateY(0)`;
+      starsEl.appendChild(shoot);
 
-</ul>
+      const deltaX = (dir * (200 + Math.random() * 600));
+      const deltaY = 200 + Math.random() * 400;
 
+      const start = performance.now();
+      function animate(time){
+        const t = (time - start) / duration;
+        if(t >= 1){
+          shoot.remove();
+          return;
+        }
+        const eased = 1 - Math.pow(1 - t, 3);
+        const curX = startX + deltaX * eased;
+        const curY = startY + deltaY * eased;
+        shoot.style.left = curX + 'px';
+        shoot.style.top = curY + 'px';
+        shoot.style.opacity = 1 - eased;
+        const scale = 1 + eased * 3;
+        shoot.style.transform = `rotate(${angle}deg) scaleX(${scale})`;
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    }
+
+    (function shootingScheduler(){
+      const delay = 1500 + Math.random() * 4500;
+      setTimeout(()=>{ spawnShootingStar(); shootingScheduler(); }, delay);
+    })();
+  </script>
 </body>
 </html>
