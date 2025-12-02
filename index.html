@@ -1,34 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Icons</title>
 
-    <ul class="wrapper">
-  <li class="icon facebook">
-    <span class="tooltip">Facebook</span>
-    <span><i class="fab fa-facebook-f"></i></span>
-  </li>
-  <li class="icon twitter">
-    <span class="tooltip">Twitter</span>
-    <span><i class="fab fa-twitter"></i></span>
-  </li>
-  <li class="icon instagram">
-    <span class="tooltip">Instagram</span>
-    <span><i class="fab fa-instagram"></i></span>
-  </li>
-  <li class="icon github">
-    <span class="tooltip">Github</span>
-    <span><i class="fab fa-github"></i></span>
-  </li>
-  <li class="icon youtube">
-    <span class="tooltip">Youtube</span>
-    <span><i class="fab fa-youtube"></i></span>
-  </li>
-</ul>
-    
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    *:focus,
+    *:active {
+      outline: none !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      display: grid;
+      height: 100%;
+      width: 100%;
+      font-family: "Poppins", sans-serif;
+      place-items: center;
+      background: linear-gradient(315deg, #ffffff, #d7e1ec);
+    }
+
+    .wrapper {
+      display: inline-flex;
+      list-style: none;
+    }
+
+    .wrapper .icon {
+      position: relative;
+      background: #ffffff;
+      border-radius: 50%;
+      padding: 15px;
+      margin: 10px;
+      width: 50px;
+      height: 50px;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .wrapper .tooltip {
+      position: absolute;
+      top: 0;
+      font-size: 14px;
+      background: #ffffff;
+      color: #ffffff;
+      padding: 5px 8px;
+      border-radius: 5px;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .wrapper .tooltip::before {
+      position: absolute;
+      content: "";
+      height: 8px;
+      width: 8px;
+      background: #ffffff;
+      bottom: -3px;
+      left: 50%;
+      transform: translate(-50%) rotate(45deg);
+    }
+
+    .wrapper .icon:hover .tooltip {
+      top: -45px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Colors */
+    .github:hover,
+    .github:hover .tooltip,
+    .github:hover .tooltip::before {
+      background: #333333;
+      color: #ffffff;
+    }
+
+    .youtube:hover,
+    .youtube:hover .tooltip,
+    .youtube:hover .tooltip::before {
+      background: #CD201F;
+      color: #ffffff;
+    }
+
+    .twitch:hover,
+    .twitch:hover .tooltip,
+    .twitch:hover .tooltip::before {
+      background: #9146FF;
+      color: #ffffff;
+    }
+
+    .discord:hover,
+    .discord:hover .tooltip,
+    .discord:hover .tooltip::before {
+      background: #5865F2;
+      color: #ffffff;
+    }
+
+    .steam1:hover,
+    .steam1:hover .tooltip,
+    .steam1:hover .tooltip::before,
+    .steam2:hover,
+    .steam2:hover .tooltip,
+    .steam2:hover .tooltip::before {
+      background: #1b2838;
+      color: #ffffff;
+    }
+  </style>
 </head>
 <body>
+
+<ul class="wrapper">
+
+  <a href="https://github.com/JameyAquini" target="_blank">
+    <li class="icon github">
+      <span class="tooltip">GitHub</span>
+      <span><i class="fab fa-github"></i></span>
+    </li>
+  </a>
+
+  <a href="https://www.youtube.com/@Jamey2005" target="_blank">
+    <li class="icon youtube">
+      <span class="tooltip">YouTube</span>
+      <span><i class="fab fa-youtube"></i></span>
+    </li>
+  </a>
+
+  <a href="https://www.twitch.tv/itzjamey" target="_blank">
+    <li class="icon twitch">
+      <span class="tooltip">Twitch</span>
+      <span><i class="fab fa-twitch"></i></span>
+    </li>
+  </a>
+
+  <a href="https://discord.com/users/809537823375228958" target="_blank">
+    <li class="icon discord">
+      <span class="tooltip">Discord</span>
+      <span><i class="fab fa-discord"></i></span>
+    </li>
+  </a>
+
+  <a href="https://steamcommunity.com/id/jameyfps" target="_blank">
+    <li class="icon steam1">
+      <span class="tooltip">Main Steam</span>
+      <span><i class="fab fa-steam"></i></span>
+    </li>
+  </a>
+
+  <a href="https://steamcommunity.com/id/jameycs" target="_blank">
+    <li class="icon steam2">
+      <span class="tooltip">Alt Steam</span>
+      <span><i class="fab fa-steam-symbol"></i></span>
+    </li>
+  </a>
+
+</ul>
+
 </body>
 </html>
